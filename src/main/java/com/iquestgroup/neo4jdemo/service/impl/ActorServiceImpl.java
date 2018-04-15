@@ -11,8 +11,4 @@ public class ActorServiceImpl implements ActorService {
   @Autowired
   private ActorRepository actorRepository;
 
-  public ActorRepository getActorRepository() {
-    return actorRepository;
-  }
-
 }

@@ -8,7 +8,7 @@ import com.iquestgroup.neo4jdemo.model.User;
 import com.iquestgroup.neo4jdemo.repository.MovieRepository;
 import com.iquestgroup.neo4jdemo.repository.RatingRepository;
 import com.iquestgroup.neo4jdemo.repository.UserRepository;
-import com.iquestgroup.neo4jdemo.repository.custom.HelperGraphRepository;
+import com.iquestgroup.neo4jdemo.repository.HelperGraphRepository;
 import com.iquestgroup.neo4jdemo.service.PopulatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,7 +87,7 @@ public class PopulatingServiceImpl implements PopulatingService {
 
     Movie hp3 = new Movie();
     hp3.setTitle("Harry Potter and the Prisoner of Azkaban");
-    hp3.actedIn(Sets.newHashSet(daniel, emma, rupert));
+    hp3.starred(Sets.newHashSet(daniel, emma, rupert));
     getMovieRepository().save(hp3);
 
     // WATCHED is only present on User. No special caution needed.
@@ -173,19 +173,19 @@ public class PopulatingServiceImpl implements PopulatingService {
     getRatingRepository().save(razvanItwRating);
   }
 
-  public MovieRepository getMovieRepository() {
+  protected MovieRepository getMovieRepository() {
     return movieRepository;
   }
 
-  public UserRepository getUserRepository() {
+  protected UserRepository getUserRepository() {
     return userRepository;
   }
 
-  public RatingRepository getRatingRepository() {
+  protected RatingRepository getRatingRepository() {
     return ratingRepository;
   }
 
-  public HelperGraphRepository getHelperGraphRepository() {
+  protected HelperGraphRepository getHelperGraphRepository() {
     return helperGraphRepository;
   }
 

@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
   @Override
   @Transactional
   public List<User> findUsersThatWatchedMovieFromTitle(String title) {
-    return getUserRepository().findUsersThatWatchedMovieFromTitle(title);
+    return getUserRepository().findUsersThatWatchedMovieByTitle(title);
   }
 
   public UserRepository getUserRepository() {

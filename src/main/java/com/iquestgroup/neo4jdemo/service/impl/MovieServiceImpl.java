@@ -23,7 +23,7 @@ public class MovieServiceImpl implements MovieService {
   @Override
   @Transactional
   public List<Movie> findMovies(int pageNumber, int pageSize) {
-    PageRequest pageRequest = new PageRequest(3, 10, Sort.Direction.ASC, "title");
+    PageRequest pageRequest = PageRequest.of(3, 10, Sort.Direction.ASC, "title");
     Page<Movie> moviePage = getMovieRepository().findAll(pageRequest);
     return moviePage.getContent();
   }

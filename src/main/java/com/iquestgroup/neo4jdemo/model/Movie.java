@@ -35,7 +35,7 @@ public class Movie extends DomainObject {
     return ratings;
   }
 
-  public void actedIn(Set<Actor> actors) {
+  public void starred(Set<Actor> actors) {
     this.actors = actors;
     for (Actor actor : actors) {
       actor.getMovies().add(this);

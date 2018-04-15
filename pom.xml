@@ -8,12 +8,12 @@
   <name>Neo4j Demo</name>
 
   <properties>
-    <spring.version>4.3.7.RELEASE</spring.version>
+    <spring.version>5.0.5.RELEASE</spring.version>
+    <spring.data.neo4j.version>5.0.6.RELEASE</spring.data.neo4j.version>
+    <neo4j.ogm.version>3.0.3</neo4j.ogm.version>
 
-    <spring.data.neo4j.version>4.1.4.RELEASE</spring.data.neo4j.version>
-    <neo4j.ogm.version>2.0.6</neo4j.ogm.version>
     <guava.version>19.0</guava.version>
-
+    <jackson.version>2.9.5</jackson.version>
     <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
 
     <slf4j.version>1.7.25</slf4j.version>
@@ -30,24 +30,12 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <version>${spring.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
@@ -75,29 +63,23 @@
     </dependency>
 
     <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-ogm</artifactId>
+      <version>${neo4j.ogm.version}</version>
+    </dependency>
+
+
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-ogm-core</artifactId>
-      <version>${neo4j.ogm.version}</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-ogm-bolt-driver</artifactId>
-      <version>${neo4j.ogm.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-ogm-http-driver</artifactId>
-      <version>${neo4j.ogm.version}</version>
-    </dependency>
-
 
     <dependency>
       <groupId>javax.servlet</groupId>
