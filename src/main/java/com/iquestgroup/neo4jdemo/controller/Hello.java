@@ -1,4 +1,4 @@
-package com.iquestgroup.neo4jdemo;
+package com.iquestgroup.neo4jdemo.controller;
 
 import com.iquestgroup.neo4jdemo.model.Movie;
 import com.iquestgroup.neo4jdemo.model.User;
