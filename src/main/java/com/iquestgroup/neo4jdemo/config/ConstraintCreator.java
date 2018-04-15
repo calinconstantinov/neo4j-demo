@@ -1,5 +1,6 @@
 package com.iquestgroup.neo4jdemo.config;
 
+import com.google.common.collect.Maps;
 import org.neo4j.ogm.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,11 +21,7 @@ public class ConstraintCreator {
 
   @Transactional
   public void createConstraints() {
-    try {
-      session.query("CREATE CONSTRAINT ON (m:Movie) ASSERT m.title IS UNIQUE", null);
-    } catch (Exception ignored) {
-
-    }
+    session.query("CREATE CONSTRAINT ON (m:Movie) ASSERT m.title IS UNIQUE", Maps.newHashMap());
   }
 
 }
