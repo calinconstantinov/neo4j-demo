@@ -22,7 +22,7 @@ public class ConstraintCreator {
   public void createConstraints() {
     try {
       session.query("CREATE CONSTRAINT ON (m:Movie) ASSERT m.title IS UNIQUE", null);
-    } catch (Exception ex) {
+    } catch (Exception ignored) {
 
     }
   }

@@ -1,14 +1,16 @@
 package com.iquestgroup.neo4jdemo.model;
 
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Property;
-import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity(label = "Movie")
-public class Movie extends DomainObject {
+public class Movie {
+
+  @Id
+  @GeneratedValue
+  private Long id;
 
   @Property
   private String title;

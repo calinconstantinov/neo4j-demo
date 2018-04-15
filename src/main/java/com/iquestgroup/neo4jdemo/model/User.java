@@ -1,19 +1,37 @@
 package com.iquestgroup.neo4jdemo.model;
 
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@NodeEntity
-public class User extends Person {
+@NodeEntity(label = "User")
+public class User {
 
-  @Relationship(type = "WATCHED", direction = Relationship.OUTGOING)
+  @Id
+  @GeneratedValue
+  private Long id;
+
+  @Property
+  private String name;
+
+  @Relationship(type = "WATCHED")
   private Set<Movie> moviesWatched = new HashSet<>();
 
   @Relationship(type = "RATED")
   private Set<Rating> ratings = new HashSet<>();
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public Set<Movie> getMoviesWatched() {
     return moviesWatched;

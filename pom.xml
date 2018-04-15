@@ -12,7 +12,7 @@
     <spring.data.neo4j.version>5.0.6.RELEASE</spring.data.neo4j.version>
     <neo4j.ogm.version>3.0.3</neo4j.ogm.version>
 
-    <guava.version>19.0</guava.version>
+    <guava.version>21.0</guava.version>
     <jackson.version>2.9.5</jackson.version>
     <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
 
@@ -64,7 +64,13 @@
 
     <dependency>
       <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-ogm</artifactId>
+      <artifactId>neo4j-ogm-core</artifactId>
+      <version>${neo4j.ogm.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-ogm-bolt-driver</artifactId>
       <version>${neo4j.ogm.version}</version>
     </dependency>
 
@@ -87,6 +93,7 @@
       <version>${javax.servlet-api.version}</version>
       <scope>provided</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -123,6 +130,16 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <groupId>org.zeroturnaround</groupId>
         <artifactId>jrebel-maven-plugin</artifactId>
         <version>${jrebel.plugin.version}</version>
@@ -139,16 +156,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
       </plugin>
     </plugins>
   </build>
