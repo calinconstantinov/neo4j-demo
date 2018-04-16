@@ -34,7 +34,7 @@ public class Actor {
     return movies;
   }
 
-  public void actedIn(Set<Movie> movies) {
+  public void setMovies(Set<Movie> movies) {
     this.movies = movies;
     for (Movie movie : movies) {
       movie.getActors().add(this);

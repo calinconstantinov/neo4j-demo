@@ -37,7 +37,7 @@ public class Movie {
     return ratings;
   }
 
-  public void starred(Set<Actor> actors) {
+  public void setActors(Set<Actor> actors) {
     this.actors = actors;
     for (Actor actor : actors) {
       actor.getMovies().add(this);
