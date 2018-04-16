@@ -1,18 +1,18 @@
 package ro.ace.ucv.neo4j.service.impl;
 
 import com.google.common.collect.Sets;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.ace.ucv.neo4j.model.Actor;
 import ro.ace.ucv.neo4j.model.Movie;
 import ro.ace.ucv.neo4j.model.Rating;
 import ro.ace.ucv.neo4j.model.User;
+import ro.ace.ucv.neo4j.repository.HelperGraphRepository;
 import ro.ace.ucv.neo4j.repository.MovieRepository;
 import ro.ace.ucv.neo4j.repository.RatingRepository;
 import ro.ace.ucv.neo4j.repository.UserRepository;
-import ro.ace.ucv.neo4j.repository.HelperGraphRepository;
 import ro.ace.ucv.neo4j.service.PopulatingService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
@@ -64,16 +64,16 @@ public class PopulatingServiceImpl implements PopulatingService {
 
     Actor daniel = new Actor();
     daniel.setName("Daniel Radcliffe");
-    daniel.actedIn(Sets.newHashSet(hp1, hp2));
+    daniel.setMovies(Sets.newHashSet(hp1, hp2));
 
     Actor emma = new Actor();
     emma.setName("Emma Watson");
-    emma.actedIn(Sets.newHashSet(hp1, hp2));
+    emma.setMovies(Sets.newHashSet(hp1, hp2));
     getMovieRepository().save(hp1);
 
     Actor rupert = new Actor();
     rupert.setName("Rupert Grint");
-    rupert.actedIn(Sets.newHashSet(hp1));
+    rupert.setMovies(Sets.newHashSet(hp1));
     getMovieRepository().save(hp2);
 
     // ACTED_IN relationship is present on both sides. One options is to save it on both entities. Take caution not to
@@ -82,12 +82,12 @@ public class PopulatingServiceImpl implements PopulatingService {
     itw.setTitle("Into the White");
     Set<Movie> rupertMovies = rupert.getMovies();
     rupertMovies.add(itw);
-    rupert.actedIn(rupertMovies);
+    rupert.setMovies(rupertMovies);
     getMovieRepository().save(itw);
 
     Movie hp3 = new Movie();
     hp3.setTitle("Harry Potter and the Prisoner of Azkaban");
-    hp3.starred(Sets.newHashSet(daniel, emma, rupert));
+    hp3.setActors(Sets.newHashSet(daniel, emma, rupert));
     getMovieRepository().save(hp3);
 
     // WATCHED is only present on User. No special caution needed.
