@@ -1,5 +1,9 @@
 package ro.ace.ucv.neo4j.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ro.ace.ucv.neo4j.model.Movie;
 import ro.ace.ucv.neo4j.model.User;
 import ro.ace.ucv.neo4j.model.queryresult.MovieAverageRatingData;
@@ -7,10 +11,6 @@ import ro.ace.ucv.neo4j.model.queryresult.MoviesCommonActorsData;
 import ro.ace.ucv.neo4j.service.MovieService;
 import ro.ace.ucv.neo4j.service.PopulatingService;
 import ro.ace.ucv.neo4j.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 

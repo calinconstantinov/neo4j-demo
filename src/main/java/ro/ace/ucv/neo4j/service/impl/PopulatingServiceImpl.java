@@ -76,8 +76,8 @@ public class PopulatingServiceImpl implements PopulatingService {
     rupert.setMovies(Sets.newHashSet(hp1));
     getMovieRepository().save(hp2);
 
-    // ACTED_IN relationship is present on both sides. One options is to save it on both entities. Take caution not to
-    // affect existing relationships.
+    // ACTED_IN relationship is present on both sides. Another option options is to save it on both entities.
+    // Take caution not to affect existing relationships.
     Movie itw = new Movie();
     itw.setTitle("Into the White");
     Set<Movie> rupertMovies = rupert.getMovies();
