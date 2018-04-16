@@ -113,7 +113,7 @@ public class PopulatingServiceImpl implements PopulatingService {
 
     User bogdan = new User();
     bogdan.setName("bogdan");
-    bogdan.setMoviesWatched(Sets.newHashSet(hp1, itw));
+    bogdan.setMoviesWatched(Sets.newHashSet(hp1, hp3, itw));
     getUserRepository().save(bogdan);
 
     Rating calinHp1Rating = new Rating();
